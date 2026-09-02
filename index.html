@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>BEHRUZBEK AI</title>
 
 <style>
@@ -16,13 +15,8 @@
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #080b18, #18204a, #090b18);
     color: white;
-
-    background:
-        radial-gradient(circle at 20% 20%, #4b0082, transparent 35%),
-        radial-gradient(circle at 80% 80%, #0047ab, transparent 35%),
-        #050510;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,288 +25,170 @@ body {
 
 .container {
     width: 100%;
-    max-width: 750px;
-
-    padding: 30px;
-
+    max-width: 800px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 30px;
-
+    border-radius: 25px;
+    padding: 25px;
     backdrop-filter: blur(15px);
-
-    box-shadow: 0 0 50px rgba(80,80,255,0.2);
-
-    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 h1 {
-    font-size: 40px;
-    margin-bottom: 8px;
+    text-align: center;
+    font-size: 35px;
 }
 
 .subtitle {
-    opacity: 0.7;
-    margin-bottom: 25px;
+    text-align: center;
+    color: #aaa;
+    margin-top: 8px;
 }
-
-/* SOAT */
 
 .clock {
-    font-size: 60px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#time {
+    font-size: 32px;
     font-weight: bold;
-    letter-spacing: 4px;
-
-    text-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-.date {
-    margin-top: 8px;
-    opacity: 0.7;
+#date {
+    color: #aaa;
+    margin-top: 5px;
 }
 
-
-/* ODAMLAR */
-
+/* Ikki odam */
 .people {
-    margin: 30px auto;
-    height: 150px;
-
+    height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    gap: 70px;
     position: relative;
 }
 
 .person {
-    width: 110px;
-    height: 140px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     position: relative;
 }
 
-.head {
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    background: #f0bd91;
-
+.person::after {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 30px;
-}
-
-.body {
-    width: 70px;
+    width: 75px;
     height: 80px;
-
-    border-radius: 35px 35px 15px 15px;
-
-    position: absolute;
-    top: 50px;
-    left: 20px;
+    border-radius: 35px 35px 10px 10px;
+    top: 65px;
+    left: -3px;
 }
 
-.left .body {
-    background: #4285f4;
+.blue {
+    background: #3b82f6;
 }
 
-.right .body {
-    background: #e85d9e;
+.blue::after {
+    background: #2563eb;
 }
 
+.pink {
+    background: #ec4899;
+}
 
-/* QO'L USHLASH */
+.pink::after {
+    background: #db2777;
+}
 
 .hands {
     position: absolute;
-
-    width: 50px;
-    height: 28px;
-
-    background: #f0bd91;
-
+    width: 100px;
+    height: 12px;
+    background: white;
     border-radius: 20px;
-
     left: 50%;
-    top: 65px;
-
+    top: 105px;
     transform: translateX(-50%);
-
-    z-index: 5;
-
-    animation: squeeze 1.5s infinite;
-}
-
-@keyframes squeeze {
-
-    0%, 100% {
-        transform: translateX(-50%) scale(1);
-    }
-
-    50% {
-        transform: translateX(-50%) scale(1.15);
-    }
-
 }
 
 .heart {
     position: absolute;
-
-    top: -38px;
+    top: 55px;
     left: 50%;
-
     transform: translateX(-50%);
-
-    font-size: 28px;
-
-    animation: heart 1.5s infinite;
+    font-size: 30px;
+    animation: beat 1s infinite;
 }
 
-@keyframes heart {
-
-    0%, 100% {
-        transform: translateX(-50%) scale(1);
-    }
-
+@keyframes beat {
     50% {
         transform: translateX(-50%) scale(1.3);
     }
-
 }
 
-
-/* AI CHAT */
-
-.ai-chat {
-    margin-top: 25px;
-
-    background: rgba(0,0,0,0.25);
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    border-radius: 20px;
-
-    padding: 15px;
-}
-
-.ai-title {
-    font-size: 20px;
-    font-weight: bold;
-
-    text-align: left;
-
-    padding: 10px;
+/* Chat */
+.chat {
+    margin-top: 20px;
 }
 
 .messages {
-    height: 250px;
-
+    height: 300px;
     overflow-y: auto;
-
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 18px;
+    padding: 15px;
 }
 
-.chat-message {
-    max-width: 80%;
-
-    padding: 11px 15px;
-
+.message {
+    padding: 12px 15px;
     border-radius: 15px;
-
-    text-align: left;
-
+    margin-bottom: 10px;
+    max-width: 80%;
     line-height: 1.4;
 }
 
-.chat-message.ai {
-    background: rgba(255,255,255,0.1);
-
-    align-self: flex-start;
+.user {
+    background: #2563eb;
+    margin-left: auto;
 }
 
-.chat-message.user {
-    background: #444;
-
-    align-self: flex-end;
+.ai {
+    background: rgba(255,255,255,0.12);
+    margin-right: auto;
 }
 
-.chat-input {
+.input-area {
     display: flex;
-
-    gap: 8px;
-
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 12px;
 }
 
-.chat-input input {
+input {
     flex: 1;
-
-    height: 45px;
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    border-radius: 12px;
-
-    padding: 0 15px;
-
-    background: rgba(255,255,255,0.08);
-
-    color: white;
-
+    padding: 15px;
+    border: none;
     outline: none;
-
-    font-size: 15px;
+    border-radius: 15px;
+    font-size: 16px;
 }
 
-.chat-input button {
-    width: 55px;
-    height: 45px;
-
+button {
     border: none;
-
-    border-radius: 12px;
-
-    background: white;
-
-    color: black;
-
-    font-size: 20px;
-
+    padding: 0 22px;
+    border-radius: 15px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.chat-input button:hover {
-    transform: scale(1.05);
-}
-
-
-/* TELEFON */
-
-@media(max-width:600px) {
-
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    .clock {
-        font-size: 42px;
-    }
-
+button:hover {
+    opacity: 0.85;
 }
 </style>
-
 </head>
 
 <body>
@@ -320,115 +196,54 @@ h1 {
 <div class="container">
 
     <h1>🤖 BEHRUZBEK AI</h1>
+    <p class="subtitle">Sening shaxsiy sun'iy intellekting</p>
 
-    <div class="subtitle">
-        Mening shaxsiy sun'iy intellektim
+    <div class="clock">
+        <div id="time">00:00:00</div>
+        <div id="date">Sana</div>
     </div>
-
-
-    <!-- SOAT -->
-
-    <div id="clock" class="clock">
-        00:00:00
-    </div>
-
-    <div id="date" class="date">
-        Sana
-    </div>
-
-
-    <!-- IKKI ODAM -->
 
     <div class="people">
-
-        <div class="person left">
-
-            <div class="head"></div>
-
-            <div class="body"></div>
-
-        </div>
-
-
-        <div class="hands">
-
-            <div class="heart">
-                ❤️
-            </div>
-
-        </div>
-
-
-        <div class="person right">
-
-            <div class="head"></div>
-
-            <div class="body"></div>
-
-        </div>
-
+        <div class="person blue"></div>
+        <div class="person pink"></div>
+        <div class="hands"></div>
+        <div class="heart">❤️</div>
     </div>
 
+    <div class="chat">
 
-    <!-- AI CHAT -->
-
-    <div class="ai-chat">
-
-        <div class="ai-title">
-            🤖 AI Chat
-        </div>
-
-
-        <div id="messages" class="messages">
-
-            <div class="chat-message ai">
-                Salom! 👋 Men BEHRUZBEK AI.
-                Menga xabar yozib ko'r!
+        <div class="messages" id="messages">
+            <div class="message ai">
+                Salom! 👋 Men BEHRUZBEK AI. Menga xabar yoz!
             </div>
-
         </div>
 
-
-        <div class="chat-input">
-
+        <div class="input-area">
             <input
-                id="userInput"
+                id="messageInput"
                 type="text"
-                placeholder="AI ga xabar yoz..."
+                placeholder="Xabar yoz..."
+                onkeydown="if(event.key === 'Enter') sendMessage()"
             >
 
-            <button onclick="sendMessage()">
-                ➤
-            </button>
-
+            <button onclick="sendMessage()">Yuborish</button>
         </div>
 
     </div>
 
 </div>
 
-
 <script>
 
-/* SOAT */
-
 function updateClock() {
-
     const now = new Date();
 
-    const hours =
-        String(now.getHours()).padStart(2, "0");
-
-    const minutes =
-        String(now.getMinutes()).padStart(2, "0");
-
-    const seconds =
+    const time =
+        String(now.getHours()).padStart(2, "0") + ":" +
+        String(now.getMinutes()).padStart(2, "0") + ":" +
         String(now.getSeconds()).padStart(2, "0");
 
-
-    document.getElementById("clock").textContent =
-        hours + ":" + minutes + ":" + seconds;
-
+    document.getElementById("time").textContent = time;
 
     const days = [
         "Yakshanba",
@@ -440,119 +255,77 @@ function updateClock() {
         "Shanba"
     ];
 
-
-    const months = [
-        "Yanvar",
-        "Fevral",
-        "Mart",
-        "Aprel",
-        "May",
-        "Iyun",
-        "Iyul",
-        "Avgust",
-        "Sentabr",
-        "Oktabr",
-        "Noyabr",
-        "Dekabr"
-    ];
-
-
-    document.getElementById("date").textContent =
-        days[now.getDay()] +
-        ", " +
-        now.getDate() +
-        " " +
-        months[now.getMonth()] +
-        " " +
+    const date =
+        days[now.getDay()] + ", " +
+        String(now.getDate()).padStart(2, "0") + "." +
+        String(now.getMonth() + 1).padStart(2, "0") + "." +
         now.getFullYear();
+
+    document.getElementById("date").textContent = date;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+
+function addMessage(text, type) {
+
+    const messages = document.getElementById("messages");
+
+    const message = document.createElement("div");
+
+    message.className = "message " + type;
+
+    message.textContent = text;
+
+    messages.appendChild(message);
+
+    messages.scrollTop = messages.scrollHeight;
 }
 
 
-updateClock();
+async function sendMessage() {
 
-setInterval(updateClock, 1000);
+    const input = document.getElementById("messageInput");
 
+    const message = input.value.trim();
 
-/* AI CHAT */
+    if (!message) return;
 
-function sendMessage() {
-
-    const input =
-        document.getElementById("userInput");
-
-    const messages =
-        document.getElementById("messages");
-
-    const text =
-        input.value.trim();
-
-
-    if (!text) {
-        return;
-    }
-
-
-    /* USER XABARI */
-
-    const userMessage =
-        document.createElement("div");
-
-    userMessage.className =
-        "chat-message user";
-
-    userMessage.textContent =
-        text;
-
-    messages.appendChild(userMessage);
-
+    addMessage(message, "user");
 
     input.value = "";
 
+    try {
 
-    messages.scrollTop =
-        messages.scrollHeight;
+        const response = await fetch(
+            "http://127.0.0.1:5000/chat",
+            {
+                method: "POST",
 
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-    /* HOZIRCHA TEST AI */
+                body: JSON.stringify({
+                    message: message
+                })
+            }
+        );
 
-    setTimeout(function() {
+        const data = await response.json();
 
-        const aiMessage =
-            document.createElement("div");
+        addMessage(data.reply, "ai");
 
-        aiMessage.className =
-            "chat-message ai";
+    } catch (error) {
 
-        aiMessage.textContent =
-            "Xabaringni oldim! 🤖 Hozircha men test rejimidaman.";
-
-        messages.appendChild(aiMessage);
-
-
-        messages.scrollTop =
-            messages.scrollHeight;
-
-    }, 500);
-
-}
-
-
-/* ENTER BOSILGANDA */
-
-document
-.getElementById("userInput")
-.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            sendMessage();
-
-        }
+        addMessage(
+            "Server bilan aloqa yo‘q 😕",
+            "ai"
+        );
 
     }
-);
+}
 
 </script>
 
